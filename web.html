@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-cyan: #00f3ff;
+            --neon-pink: #ff00a0;
+            --dark-bg: #050505;
+            --grid-color: rgba(0, 243, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #fff;
+            font-family: 'Share Tech Mono', monospace;
+            overflow-x: hidden;
+            /* Creating a futuristic grid background */
+            background-image: 
+                linear-gradient(transparent 95%, var(--grid-color) 100%),
+                linear-gradient(90deg, transparent 95%, var(--grid-color) 100%);
+            background-size: 40px 40px;
+        }
+
+        /* Scanline Overlay Effect */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        header {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--neon-cyan);
+            box-shadow: 0 0 15px var(--neon-cyan);
+            background: rgba(0,0,0,0.8);
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 5px var(--neon-cyan);
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 8px var(--neon-pink);
+        }
+
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* The glowing text effect */
+        .glow {
+            color: #fff;
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px var(--neon-cyan),
+                0 0 40px var(--neon-cyan),
+                0 0 80px var(--neon-cyan);
+        }
+
+        .typewriter {
+            font-size: 1.5rem;
+            color: var(--neon-pink);
+            min-height: 30px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            background: transparent;
+            color: var(--neon-cyan);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 2px solid var(--neon-cyan);
+            position: relative;
+            overflow: hidden;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--neon-cyan);
+            color: #000;
+            box-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-pink);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px var(--neon-pink);
+            border-left: 5px solid var(--neon-cyan);
+            padding-left: 15px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid var(--neon-cyan);
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+            border-color: var(--neon-pink);
+        }
+
+        .project-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-cyan);
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        .project-card a {
+            color: var(--neon-pink);
+            text-decoration: none;
+            border-bottom: 1px solid var(--neon-pink);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid var(--grid-color);
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">SYS.ADMIN // [YOUR INITIALS]</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#projects">Data_Logs</a>
+            <a href="#contact">Comm_Link</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1 class="glow">Welcome, User</h1>
+        <div class="typewriter" id="typewriter-text"></div>
+        <a href="#projects" class="btn">Initialize Sequence</a>
+    </section>
+
+    <div class="container" id="projects">
+        <h2 class="section-title">Projects_Directory</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Neural Network UI</h3>
+                <p>A front-end interface built for a machine learning model. Designed with React and styled with deep cyberspace aesthetics.</p>
+                <a href="#">Access File &gt;&gt;</a>
+            </div>
+            <div class="project-card">
+                <h3>Quantum Crypto App</h3>
+                <p>Decentralized application tracking crypto metrics in real-time. Node.js backend with an interactive D3.js frontend.</p>
+                <a href="#">Access File &gt;&gt;</a>
+            </div>
+            <div class="project-card">
+                <h3>Off-Grid Comm System</h3>
+                <p>A secure chat application utilizing end-to-end encryption. Built using WebSockets for instantaneous data transfer.</p>
+                <a href="#">Access File &gt;&gt;</a>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <p>TRANSMISSION SECURE. &copy; 2026 [YOUR NAME]. END OF LINE.</p>
+    </footer>
+
+    <script>
+        const text = "System successfully booted. Loading portfolio data... Ready.";
+        const typeContainer = document.getElementById("typewriter-text");
+        let i = 0;
+
+        function typeWriter() {
+            if (i < text.length) {
+                // Adds a blinking cursor effect during typing
+                typeContainer.innerHTML = text.substring(0, i + 1) + "<span style='color:#fff'>_</span>";
+                i++;
+                // Randomize typing speed for a realistic terminal feel
+                let speed = Math.random() * 50 + 30; 
+                setTimeout(typeWriter, speed);
+            } else {
+                // Keep the cursor blinking at the end
+                typeContainer.innerHTML = text + "<span style='animation: blink 1s infinite;'>_</span>";
+            }
+        }
+
+        // Add blinking CSS dynamically
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes blink {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Start typing effect shortly after page loads
+        setTimeout(typeWriter, 1000);
+    </script>
+</body>
+</html>
